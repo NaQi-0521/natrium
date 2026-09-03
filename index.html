@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -163,7 +164,7 @@
 
         /* ===== Hero 区域（背景 #373E62） ===== */
         .hero {
-            background: #373E62;           /* 指定背景色 */
+            background: #373E62;
             padding: 24px 0 20px;
             display: flex;
             flex-direction: column;
@@ -171,7 +172,6 @@
             align-items: center;
             text-align: center;
         }
-        /* 深色模式下保持固定颜色 */
         [data-theme="dark"] .hero {
             background: #373E62;
         }
@@ -200,17 +200,16 @@
             font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            color: #ffffff;                /* 白色标题 */
+            color: #ffffff;
         }
         .hero-title .subhead {
             font-size: 0.95rem;
-            color: #d0d5e0;                /* 浅灰色副标题 */
+            color: #d0d5e0;
             margin-top: 2px;
             font-weight: 400;
             white-space: nowrap;
         }
 
-        /* 联系方式卡片（白色背景保留） */
         .hero-contact {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -253,7 +252,6 @@
             align-items: center;
             justify-content: center;
         }
-        /* 联系方式内的链接颜色 */
         .hero-contact a {
             color: var(--color-primary);
         }
@@ -261,13 +259,12 @@
             color: var(--color-secondary);
         }
 
-        /* 简介文字 */
         .hero-desc {
             font-size: 0.95rem;
-            color: #f0f2f7;                /* 浅色文字 */
+            color: #f0f2f7;
             max-width: 600px;
             line-height: 1.6;
-            background: rgba(255, 255, 255, 0.10); /* 半透明背景 */
+            background: rgba(255, 255, 255, 0.10);
             padding: 16px 18px;
             border-radius: var(--radius);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -276,7 +273,6 @@
             width: 100%;
         }
 
-        /* 标签 */
         .hero-tags {
             display: flex;
             flex-wrap: wrap;
@@ -405,7 +401,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== 经历卡片 ===== */
+        /* ===== 经历卡片（待添加状态） ===== */
         .exp-card {
             background: var(--color-surface);
             border: 1px solid var(--color-border);
@@ -414,56 +410,14 @@
             margin-bottom: 12px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.04);
             transition: all 0.2s;
-        }
-        .exp-card:hover {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            transform: translateY(-2px);
-        }
-        .exp-card .exp-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 6px 12px;
-            margin-bottom: 6px;
-        }
-        .exp-card .exp-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--color-text);
-        }
-        .exp-card .exp-title .exp-org {
-            font-weight: 400;
-            color: var(--color-text-secondary);
-            font-size: 0.85rem;
-        }
-        .exp-card .exp-date {
-            font-size: 0.75rem;
+            text-align: center;
             color: var(--color-text-muted);
-            font-weight: 500;
-            background: var(--color-bg);
-            padding: 2px 10px;
-            border-radius: 12px;
-            border: 1px solid var(--color-border);
+            font-style: italic;
         }
-        .exp-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 6px 0 0;
-        }
-        .exp-card ul li {
-            padding: 4px 0 4px 18px;
-            position: relative;
-            font-size: 0.88rem;
-            color: var(--color-text-secondary);
-            line-height: 1.5;
-        }
-        .exp-card ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--color-secondary);
-            font-weight: 700;
+        .exp-card .exp-placeholder {
+            font-size: 0.95rem;
+            padding: 12px 0;
+            color: var(--color-text-muted);
         }
 
         /* ===== 项目卡片 ===== */
@@ -553,6 +507,18 @@
             margin-top: 8px;
             padding-top: 8px;
             border-top: 1px solid var(--color-border);
+        }
+        .project-card .proj-link {
+            margin-top: 6px;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .project-card .proj-link a {
+            color: var(--color-secondary);
+            font-weight: 500;
+        }
+        .project-card .proj-link a:hover {
+            color: var(--color-primary);
         }
 
         /* ===== 技能 ===== */
@@ -696,22 +662,40 @@
             font-size: 0.8rem;
         }
 
-        /* ===== 证书图片 ===== */
+        /* ===== 证书图片（双图并排） ===== */
         .certificate-wrapper {
             margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .certificate-wrapper .cert-item {
+            flex: 1 1 200px;
+            min-width: 140px;
             text-align: center;
-        }
-        .cert-image {
-            max-width: 100%;
-            max-height: 240px;
-            border-radius: var(--radius);
-            border: 1px solid var(--color-border);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            transition: transform 0.2s;
             background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
         }
-        .cert-image:hover {
+        .certificate-wrapper .cert-item:hover {
             transform: scale(1.02);
+        }
+        .certificate-wrapper .cert-item img {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+            object-fit: contain;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .certificate-wrapper .cert-item .cert-label {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
         }
 
         /* ===== Footer ===== */
@@ -807,6 +791,10 @@
             .navbar {
                 padding: 0 24px;
             }
+            .certificate-wrapper .cert-item {
+                flex: 1 1 220px;
+                min-width: 160px;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -841,7 +829,7 @@
                 display: none !important;
             }
             .hero {
-                background: #373E62 !important;  /* 打印保留深色背景 */
+                background: #373E62 !important;
                 padding: 16px 0 12px;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
@@ -910,10 +898,8 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .cert-image {
-                border: 1px solid #d1d5db !important;
-                box-shadow: none !important;
-                max-height: 160px;
+            .certificate-wrapper .cert-item img {
+                max-height: 120px;
             }
             .project-card .proj-images figure img {
                 max-height: 100px;
@@ -929,7 +915,6 @@
             }
         }
 
-        /* ===== 减少动效 ===== */
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -942,7 +927,6 @@
             }
         }
 
-        /* ===== 工具类 ===== */
         .sr-only {
             position: absolute !important;
             width: 1px !important;
@@ -1016,7 +1000,7 @@
                 </div>
             </section>
 
-            <!-- ===== 经历 ===== -->
+            <!-- ===== 经历（仅保留三个分栏，内容为“待添加”） ===== -->
             <section class="section" id="experience">
                 <h2 class="section-title">💼 经历</h2>
                 <div class="tabs-wrapper" id="experienceTabs">
@@ -1029,7 +1013,7 @@
                 </div>
             </section>
 
-            <!-- ===== 项目 ===== -->
+            <!-- ===== 项目（分栏改名为“航空航天”） ===== -->
             <section class="section" id="projects">
                 <h2 class="section-title">🚀 项目</h2>
                 <div class="tabs-wrapper" id="projectTabs">
@@ -1062,7 +1046,7 @@
                             <!-- JS 渲染 -->
                         </div>
                         <div class="certificate-wrapper" id="certificateContainer">
-                            <!-- JS 渲染 -->
+                            <!-- JS 渲染：两张证书图片 -->
                         </div>
                     </div>
                 </div>
@@ -1111,54 +1095,30 @@
                     { number: '20+', label: 'GitHub 项目 Star' },
                     { number: '200+', label: '技术博客阅读量' }
                 ],
+                // 经历：只保留三个分栏，内容为待添加
                 experience: [{
                     id: 'exp-work',
                     label: '工作',
-                    items: [{
-                        title: '数据驱动的化学实验优化',
-                        org: '独立研究 / 项目负责人',
-                        date: '2025 – 2026',
-                        points: [
-                            '设计数据记录方案，采集 80+ 组温度、浓度与 pH 变化数据，借助 Python 完成清洗和趋势拟合，识别 3 个关键影响中和反应速率的核心变量',
-                            '搭建可视化看板展示不同浓度组合下的突跃范围变化，将实验耗时从平均 45 分钟压缩至 32 分钟，<strong>效率提升约 29%</strong>',
-                            '撰写实验分析报告并在校内科技创新活动中展示，获“最佳数据分析实践奖”，为课题组后续实验标准化提供了可复用的数据处理模板'
-                        ]
-                    }]
+                    placeholder: '暂无工作经历，期待你的机会 ✨'
                 }, {
                     id: 'exp-intern',
                     label: '实习',
-                    items: [{
-                        title: '电商用户行为分析模拟项目',
-                        org: '数据挖掘练习',
-                        date: '2024 – 2025',
-                        points: [
-                            '基于 Kaggle 公开数据集（约 10 万条用户行为记录），使用 Pandas 完成数据清洗与用户会话聚合，设计用户活跃度分层指标（高/中/低频用户）',
-                            '通过漏斗分析定位从浏览到加购的关键流失节点，提出优化“加购后推荐策略”的建议，模拟测算可使加购转化率 <strong>相对提升约 18%</strong>',
-                            '产出结构化分析报告并同步至个人技术博客，累计阅读量 200+，获数据科学学习社群优质内容推荐'
-                        ]
-                    }]
+                    placeholder: '暂无实习经历，正在积极寻找 🌱'
                 }, {
                     id: 'exp-campus',
                     label: '校园',
-                    items: [{
-                        title: '无人机飞行数据模拟项目',
-                        org: '项目发起人（航空航天兴趣方向）',
-                        date: '2025',
-                        points: [
-                            '基于开源飞行轨迹数据集（约 5000 条轨迹点），模拟小型无人机在典型城市低空环境下的飞行路径，利用 K-Means 聚类识别异常偏航模式，成功标记出 <strong>3 类高风险轨迹特征</strong>',
-                            '使用 Matplotlib 绘制轨迹热力图，直观呈现飞行密度与风险区域分布，相关结论在兴趣小组内作为飞行安全预案参考',
-                            '项目代码开源在 GitHub，收获同类兴趣者 <strong>20+ Star</strong> 和 1 次外部交流邀请'
-                        ]
-                    }]
+                    placeholder: '校园经历待补充，未来可期 🚀'
                 }],
+                // 项目：分栏名改为“航空航天”
                 projects: [{
-                    id: 'proj-main',
-                    label: '项目',
+                    id: 'proj-aero',
+                    label: '航空航天',
                     items: [{
                         title: '自制齐奥尔科夫斯基火箭方程计算器',
                         stack: ['Python', 'Tkinter', '数值计算', 'GUI 设计'],
                         desc: '将齐奥尔科夫斯基火箭方程写入代码，使火箭燃料量的计算更为便捷。更新迭代后的第二款增加了带入未知数计算的功能，同时重新设计了工具的 GUI。',
                         result: '完成两代迭代，实现未知数求解与 GUI 重构，已用于个人航天兴趣研究',
+                        link: 'https://naqi-0521.github.io/rocket_calculator/',
                         images: [
                             { src: 'calculator_1.png', caption: '第一代计算器' },
                             { src: 'calculator_2.png', caption: '第二代计算器' }
@@ -1232,7 +1192,6 @@
                     <span class="item"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> <a href="${p.github}" target="_blank">${p.github}</a></span>
                     <span class="item"><svg viewBox="0 0 24 24"><path d="M2 12a10 10 0 1 0 20 0 10 10 0 1 0-20 0"/><path d="M12 2v20"/><path d="M2 12h20"/></svg> ${p.location}</span>
                 `;
-                // 复制邮箱
                 const copyBtn = el.querySelector('.copy-btn');
                 if (copyBtn) {
                     copyBtn.addEventListener('click', function(e) {
@@ -1276,7 +1235,7 @@
                 ).join('');
             }
 
-            // 经历 Tabs
+            // 经历 Tabs（待添加状态）
             function renderExperience() {
                 const tabList = $('#expTabList');
                 const panels = $('#expPanels');
@@ -1286,16 +1245,11 @@
                     `<button role="tab" id="exp-tab-${g.id}" aria-controls="exp-panel-${g.id}" aria-selected="${idx === 0 ? 'true' : 'false'}" tabindex="${idx === 0 ? '0' : '-1'}">${g.label}</button>`
                 ).join('');
                 panels.innerHTML = expData.map((g, idx) => {
-                    const itemsHtml = g.items.map(item =>
-                        `<div class="exp-card">
-                            <div class="exp-header">
-                                <div class="exp-title">${item.title} <span class="exp-org">· ${item.org}</span></div>
-                                <span class="exp-date">${item.date}</span>
-                            </div>
-                            <ul>${item.points.map(p => `<li>${p}</li>`).join('')}</ul>
-                        </div>`
-                    ).join('');
-                    return `<div role="tabpanel" id="exp-panel-${g.id}" aria-labelledby="exp-tab-${g.id}" aria-hidden="${idx === 0 ? 'false' : 'true'}" class="tabs-panel">${itemsHtml}</div>`;
+                    return `<div role="tabpanel" id="exp-panel-${g.id}" aria-labelledby="exp-tab-${g.id}" aria-hidden="${idx === 0 ? 'false' : 'true'}" class="tabs-panel">
+                        <div class="exp-card">
+                            <div class="exp-placeholder">${g.placeholder}</div>
+                        </div>
+                    </div>`;
                 }).join('');
                 const tabs = $$('[role="tab"]', tabList);
                 const panelsEl = $$('[role="tabpanel"]', panels);
@@ -1314,7 +1268,7 @@
                 });
             }
 
-            // 项目 Tabs（单一）
+            // 项目 Tabs（分栏名“航空航天”）
             function renderProjects() {
                 const tabList = $('#projTabList');
                 const panels = $('#projPanels');
@@ -1344,6 +1298,7 @@
                                 <div class="proj-desc">${item.desc}</div>
                                 ${imagesHtml}
                                 <div class="proj-result">📊 ${item.result}</div>
+                                ${item.link ? `<div class="proj-link">🔗 <a href="${item.link}" target="_blank">点击体验第二版计算器：${item.link}</a></div>` : ''}
                             </div>`;
                     }).join('');
                     return `<div role="tabpanel" id="proj-panel-${g.id}" aria-labelledby="proj-tab-${g.id}" aria-hidden="${idx === 0 ? 'false' : 'true'}" class="tabs-panel"><div class="project-grid">${cardsHtml}</div></div>`;
@@ -1411,7 +1366,7 @@
                     </div>`;
             }
 
-            // 证书
+            // 证书（仅保留“阿里达摩院人工智能训练师证书”）
             function renderAwards() {
                 const el = $('#awardsCard');
                 if (!el) return;
@@ -1426,11 +1381,20 @@
                     </div>`;
             }
 
-            // 证书图片
+            // 证书图片：primary.jpg + advanced.jpg
             function renderCertificate() {
                 const container = $('#certificateContainer');
                 if (!container) return;
-                container.innerHTML = `<img src="primary.jpg" alt="阿里达摩院人工智能训练师证书" class="cert-image" loading="lazy" />`;
+                container.innerHTML = `
+                    <div class="cert-item">
+                        <img src="primary.jpg" alt="阿里达摩院人工智能训练师证书" loading="lazy" />
+                        <div class="cert-label">初级证书</div>
+                    </div>
+                    <div class="cert-item">
+                        <img src="advanced.jpg" alt="高级证书" loading="lazy" />
+                        <div class="cert-label">高级证书</div>
+                    </div>
+                `;
             }
 
             // =============================================================
@@ -1509,3 +1473,4 @@
 
 </body>
 </html>
+```
