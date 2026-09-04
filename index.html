@@ -1,4 +1,4 @@
-```html
+version:1.13
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>周震琦 · 简历</title>
     <style>
+        /* ===== 本地像素字体（Zpix / 最像素，GB2312 全字库） ===== */
+        @font-face {
+            font-family: 'Zpix Pixel';
+            src: url('fonts/zpix.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
         /* ===== 基础重置 & 移动优先 ===== */
         *,
         *::before,
@@ -46,16 +55,23 @@
 
         html {
             scroll-behavior: smooth;
+            /* 全屏背景图（最底层，宽度与顶部 Hero 一致）：background.jpg */
+            background: #e6f3ff url('background.jpg') center center / cover no-repeat fixed;
         }
 
         body {
             font-family: var(--font-sans);
-            background: var(--color-bg);
+            /* 半透明背景色：透出底层 background.jpg（“亮点成果”及以下区域） */
+            background: rgba(230, 243, 255, 0.75);
             color: var(--color-text);
             line-height: 1.5;
             padding-top: var(--nav-height);
             transition: background 0.2s, color 0.2s;
             -webkit-font-smoothing: antialiased;
+        }
+        /* 深色主题：半透明深色背景，同样透出底层 background.jpg */
+        [data-theme="dark"] body {
+            background: rgba(15, 23, 42, 0.75);
         }
 
         a {
@@ -162,18 +178,27 @@
             stroke-linejoin: round;
         }
 
-        /* ===== Hero 区域（背景 #373E62） ===== */
+        /* ===== Hero 区域（全幅背景：手机 background.jpg / 电脑 background_PC.png，半透明 #3282F6 叠加） ===== */
         .hero {
-            background: #373E62;
-            padding: 24px 0 20px;
+            /* 手机端：background.jpg 填充导航栏与“亮点成果”之间的整幅区域 */
+            background:
+                linear-gradient(rgba(50, 130, 246, 0.60), rgba(50, 130, 246, 0.60)),
+                url('background.jpg') center center / cover no-repeat;
+            padding: 24px 16px 20px;
             display: flex;
             flex-direction: column;
             gap: 16px;
             align-items: center;
             text-align: center;
         }
-        [data-theme="dark"] .hero {
-            background: #373E62;
+
+        /* 电脑端（≥768px）：换用 background_PC.png */
+        @media (min-width: 768px) {
+            .hero {
+                background:
+                    linear-gradient(rgba(50, 130, 246, 0.60), rgba(50, 130, 246, 0.60)),
+                    url('background_PC.png') center center / cover no-repeat;
+            }
         }
 
         .hero-top {
@@ -333,16 +358,19 @@
             margin-top: 2px;
         }
 
-        /* ===== 通用章节 ===== */
+        /* ===== 通用章节（标题：像素字 + 硬阴影） ===== */
         .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: -0.3px;
+            /* 12px 点阵字体的整数倍，保证像素边缘清晰 */
+            font-size: 24px;
+            font-family: 'Zpix Pixel', 'Microsoft YaHei', 'PingFang SC', monospace;
+            font-weight: 400;
+            letter-spacing: 0.5px;
             margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 10px;
             color: var(--color-text);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.30);
         }
         .section-title::after {
             content: '';
@@ -418,6 +446,29 @@
             font-size: 0.95rem;
             padding: 12px 0;
             color: var(--color-text-muted);
+        }
+
+        /* 经历卡片（有实际内容） */
+        .exp-card.exp-entry {
+            text-align: left;
+            font-style: normal;
+            color: var(--color-text);
+        }
+        .exp-card.exp-entry .exp-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+        .exp-card.exp-entry .exp-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 合并后的证书框：名称 + 图片 */
+        .awards-list .certificate-wrapper {
+            margin-top: 12px;
         }
 
         /* ===== 项目卡片 ===== */
@@ -756,7 +807,7 @@
                 padding: 0 24px;
             }
             .hero {
-                padding: 32px 0 28px;
+                padding: 32px 24px 28px;
             }
             .hero-title h1 {
                 font-size: 2.4rem;
@@ -811,6 +862,10 @@
 
         /* ===== 打印样式 ===== */
         @media print {
+            html {
+                /* 打印时不输出背景图，保持白底 */
+                background: #fff !important;
+            }
             :root {
                 --color-bg: #fff;
                 --color-surface: #fff;
@@ -829,8 +884,10 @@
                 display: none !important;
             }
             .hero {
-                background: #373E62 !important;
-                padding: 16px 0 12px;
+                background:
+                    linear-gradient(rgba(50, 130, 246, 0.60), rgba(50, 130, 246, 0.60)),
+                    url('background_PC.png') center center / cover no-repeat !important;
+                padding: 16px 16px 12px;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -966,10 +1023,8 @@
 
     <!-- ===== 主内容 ===== -->
     <main>
-        <div class="container">
-
-            <!-- ===== HERO（背景 #373E62） ===== -->
-            <section class="hero" id="hero">
+        <!-- ===== HERO（全幅背景：手机 background.jpg / 电脑 background_PC.png + 半透明 #3282F6） ===== -->
+        <section class="hero" id="hero">
                 <div class="hero-top">
                     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;">
                         <div class="hero-avatar">
@@ -990,7 +1045,9 @@
                 <div class="hero-tags" id="heroTags">
                     <!-- JS 渲染 -->
                 </div>
-            </section>
+        </section>
+
+        <div class="container">
 
             <!-- ===== 亮点 ===== -->
             <section class="highlights" id="highlights">
@@ -1043,10 +1100,7 @@
                     </div>
                     <div>
                         <div id="awardsCard">
-                            <!-- JS 渲染 -->
-                        </div>
-                        <div class="certificate-wrapper" id="certificateContainer">
-                            <!-- JS 渲染：两张证书图片 -->
+                            <!-- JS 渲染：证书名称 + 两张证书图片（合并为一个框） -->
                         </div>
                     </div>
                 </div>
@@ -1107,7 +1161,10 @@
                 }, {
                     id: 'exp-campus',
                     label: '校园',
-                    placeholder: '校园经历待补充，未来可期 🚀'
+                    items: [{
+                        title: '青岛市即墨区第二中学',
+                        desc: '高中时期在班上担任化学课代表，执行力强，具备责任心，积极帮同学解答问题，擅长基础搭建和技术攻关工作。'
+                    }]
                 }],
                 // 项目：分栏名改为“航空航天”
                 projects: [{
@@ -1245,11 +1302,19 @@
                     `<button role="tab" id="exp-tab-${g.id}" aria-controls="exp-panel-${g.id}" aria-selected="${idx === 0 ? 'true' : 'false'}" tabindex="${idx === 0 ? '0' : '-1'}">${g.label}</button>`
                 ).join('');
                 panels.innerHTML = expData.map((g, idx) => {
-                    return `<div role="tabpanel" id="exp-panel-${g.id}" aria-labelledby="exp-tab-${g.id}" aria-hidden="${idx === 0 ? 'false' : 'true'}" class="tabs-panel">
-                        <div class="exp-card">
+                    let bodyHtml;
+                    if (g.items && g.items.length) {
+                        bodyHtml = g.items.map(item => `
+                            <div class="exp-card exp-entry">
+                                <div class="exp-title">${item.title}</div>
+                                <div class="exp-desc">${item.desc}</div>
+                            </div>`).join('');
+                    } else {
+                        bodyHtml = `<div class="exp-card">
                             <div class="exp-placeholder">${g.placeholder}</div>
-                        </div>
-                    </div>`;
+                        </div>`;
+                    }
+                    return `<div role="tabpanel" id="exp-panel-${g.id}" aria-labelledby="exp-tab-${g.id}" aria-hidden="${idx === 0 ? 'false' : 'true'}" class="tabs-panel">${bodyHtml}</div>`;
                 }).join('');
                 const tabs = $$('[role="tab"]', tabList);
                 const panelsEl = $$('[role="tabpanel"]', panels);
@@ -1366,7 +1431,7 @@
                     </div>`;
             }
 
-            // 证书（仅保留“阿里达摩院人工智能训练师证书”）
+            // 证书（名称 + 两张证书图片合并为一个框）
             function renderAwards() {
                 const el = $('#awardsCard');
                 if (!el) return;
@@ -1378,23 +1443,17 @@
                 el.innerHTML = `
                     <div class="awards-list">
                         <ul>${awards.map(a => `<li><span class="award-name">${a.name}</span><span class="award-year">${a.year}</span></li>`).join('')}</ul>
+                        <div class="certificate-wrapper">
+                            <div class="cert-item">
+                                <img src="primary.jpg" alt="阿里达摩院人工智能训练师初级证书" loading="lazy" />
+                                <div class="cert-label">初级证书</div>
+                            </div>
+                            <div class="cert-item">
+                                <img src="advanced.jpg" alt="阿里达摩院人工智能训练师高级证书" loading="lazy" />
+                                <div class="cert-label">高级证书</div>
+                            </div>
+                        </div>
                     </div>`;
-            }
-
-            // 证书图片：primary.jpg + advanced.jpg
-            function renderCertificate() {
-                const container = $('#certificateContainer');
-                if (!container) return;
-                container.innerHTML = `
-                    <div class="cert-item">
-                        <img src="primary.jpg" alt="阿里达摩院人工智能训练师证书" loading="lazy" />
-                        <div class="cert-label">初级证书</div>
-                    </div>
-                    <div class="cert-item">
-                        <img src="advanced.jpg" alt="高级证书" loading="lazy" />
-                        <div class="cert-label">高级证书</div>
-                    </div>
-                `;
             }
 
             // =============================================================
@@ -1456,7 +1515,6 @@
                 renderSkills();
                 renderEducation();
                 renderAwards();
-                renderCertificate();
                 initTheme();
                 initPrint();
                 initBackTop();
