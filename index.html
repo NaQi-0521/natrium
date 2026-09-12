@@ -1,4 +1,3 @@
-version:1.15
 <!DOCTYPE html>
 <html lang="zh-CN" data-page-node-id="N9pJgSBWA1tJxNc1uo3Pcx">
 <head data-page-node-id="G5UomxgJH5xA0tsVOZUXyi">
@@ -180,6 +179,7 @@ version:1.15
 
         /* ===== Hero 区域（全幅背景：手机 background_MP.png / 电脑 background_PC.png，半透明 #3282F6 叠加） ===== */
         .hero {
+            position: relative;
             /* 手机端：background_MP.png 填充导航栏与“亮点成果”之间的整幅区域 */
             background:
                 linear-gradient(rgba(50, 130, 246, 0.60), rgba(50, 130, 246, 0.60)),
@@ -199,6 +199,18 @@ version:1.15
                     linear-gradient(rgba(50, 130, 246, 0.60), rgba(50, 130, 246, 0.60)),
                     url('background_PC.png') center center / cover no-repeat;
             }
+        }
+
+        /* Hero 右上角版本号 */
+        .hero-version {
+            position: absolute;
+            top: 6px;
+            right: 12px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            color: rgba(255, 255, 255, 0.85);
+            pointer-events: none;
         }
 
         .hero-top {
@@ -1025,6 +1037,7 @@ version:1.15
     <main data-page-node-id="wyazO9ml04nhHyMfkqngOZ">
         <!-- ===== HERO（全幅背景：手机 background_MP.png / 电脑 background_PC.png + 半透明 #3282F6） ===== -->
         <section class="hero" id="hero" data-page-node-id="1TiEgOgdWQn3xX5LHQdAxa">
+                <div class="hero-version">version:1.16</div>
                 <div class="hero-top" data-page-node-id="zFACL7leDMO86gEDxtKGr1">
                     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;" data-page-node-id="irxeRltxKpO4BxHVO6vcIM">
                         <div class="hero-avatar" data-page-node-id="Ohjr2wIn4HkX24E6Oem8UA">
