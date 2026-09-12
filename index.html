@@ -1,4 +1,4 @@
-version:1.13
+version:1.15
 <!DOCTYPE html>
 <html lang="zh-CN" data-page-node-id="N9pJgSBWA1tJxNc1uo3Pcx">
 <head data-page-node-id="G5UomxgJH5xA0tsVOZUXyi">
@@ -178,12 +178,12 @@ version:1.13
             stroke-linejoin: round;
         }
 
-        /* ===== Hero 区域（全幅背景：手机 background.jpg / 电脑 background_PC.png，半透明 #3282F6 叠加） ===== */
+        /* ===== Hero 区域（全幅背景：手机 background_MP.png / 电脑 background_PC.png，半透明 #3282F6 叠加） ===== */
         .hero {
-            /* 手机端：background.jpg 填充导航栏与“亮点成果”之间的整幅区域 */
+            /* 手机端：background_MP.png 填充导航栏与“亮点成果”之间的整幅区域 */
             background:
                 linear-gradient(rgba(50, 130, 246, 0.60), rgba(50, 130, 246, 0.60)),
-                url('background.jpg') center center / cover no-repeat;
+                url('background_MP.png') center center / cover no-repeat;
             padding: 24px 16px 20px;
             display: flex;
             flex-direction: column;
@@ -1023,7 +1023,7 @@ version:1.13
 
     <!-- ===== 主内容 ===== -->
     <main data-page-node-id="wyazO9ml04nhHyMfkqngOZ">
-        <!-- ===== HERO（全幅背景：手机 background.jpg / 电脑 background_PC.png + 半透明 #3282F6） ===== -->
+        <!-- ===== HERO（全幅背景：手机 background_MP.png / 电脑 background_PC.png + 半透明 #3282F6） ===== -->
         <section class="hero" id="hero" data-page-node-id="1TiEgOgdWQn3xX5LHQdAxa">
                 <div class="hero-top" data-page-node-id="zFACL7leDMO86gEDxtKGr1">
                     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;" data-page-node-id="irxeRltxKpO4BxHVO6vcIM">
@@ -1189,6 +1189,14 @@ version:1.13
                         title: '自制《坦克大战》小游戏',
                         stack: ['HTML', 'Vibecoding', 'GUI设计', '更新迭代'],
                         desc: '该《坦克大战》小游戏使用TraeCode制作，游戏界面简洁，游戏功能相对完备，加入音效和简单的设置功能。本项目用于打通个人Vibecoding编程的全流程，提高对AI工具的使用能力。',
+                        images: [
+                            { src: 'main interface.png', caption: '主界面' },
+                            { src: 'operation instructions.png', caption: '操作界面' },
+                            { src: 'sound adjustment.png', caption: '声音调节' },
+                            { src: 'game interface.png', caption: '游戏界面' },
+                            { src: 'victory.png', caption: '游戏胜利' },
+                            { src: 'game paused.png', caption: '游戏暂停' }
+                        ],
                         result: '已完成第一代简陋版本的制作，后续将迭代新功能',
                         link: 'https://naqi-0521.github.io/tank_war/',
                         linkText: '点击体验《坦克大战》小游戏'
