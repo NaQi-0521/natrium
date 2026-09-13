@@ -390,6 +390,14 @@
             height: 2px;
             background: linear-gradient(90deg, var(--color-secondary), transparent);
         }
+        /* 标题图标：像素风图片，与 24px 像素字对齐 */
+        .section-title img {
+            width: 32px;
+            height: 32px;
+            image-rendering: pixelated;
+            flex-shrink: 0;
+            filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.30));
+        }
         .section {
             padding: 16px 0 24px;
             border-bottom: 1px solid var(--color-border);
@@ -1037,7 +1045,7 @@
     <main data-page-node-id="wyazO9ml04nhHyMfkqngOZ">
         <!-- ===== HERO（全幅背景：手机 background_MP.png / 电脑 background_PC.png + 半透明 #3282F6） ===== -->
         <section class="hero" id="hero" data-page-node-id="1TiEgOgdWQn3xX5LHQdAxa">
-                <div class="hero-version">version:1.16</div>
+                <div class="hero-version">version:1.17</div>
                 <div class="hero-top" data-page-node-id="zFACL7leDMO86gEDxtKGr1">
                     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;" data-page-node-id="irxeRltxKpO4BxHVO6vcIM">
                         <div class="hero-avatar" data-page-node-id="Ohjr2wIn4HkX24E6Oem8UA">
@@ -1064,7 +1072,7 @@
 
             <!-- ===== 亮点 ===== -->
             <section class="highlights" id="highlights" data-page-node-id="03mYTPSpE9pIsuVKbYTfAT">
-                <h2 class="section-title" data-page-node-id="gxH7FLSFMLWHYWAKC7hZhk">✨ 亮点成果</h2>
+                <h2 class="section-title" data-page-node-id="gxH7FLSFMLWHYWAKC7hZhk"><img src="icon_title/Amethyst_Shard.png" alt="亮点成果图标" loading="lazy">亮点成果</h2>
                 <div class="highlights-grid" id="highlightsGrid" data-page-node-id="lEzuDDWy5Lg7hfDNMyFdn6">
                     <!-- JS 渲染 -->
                 </div>
@@ -1072,7 +1080,7 @@
 
             <!-- ===== 经历（仅保留三个分栏，内容为“待添加”） ===== -->
             <section class="section" id="experience" data-page-node-id="328OwGuzxY2KTBCLyEng9K">
-                <h2 class="section-title" data-page-node-id="06kgnlaIFpiSBPcZUx6kmE">💼 经历</h2>
+                <h2 class="section-title" data-page-node-id="06kgnlaIFpiSBPcZUx6kmE"><img src="icon_title/Bundle.png" alt="经历图标" loading="lazy">经历</h2>
                 <div class="tabs-wrapper" id="experienceTabs" data-page-node-id="Cv4ZWBJwCktk1vmmIt4dQd">
                     <div class="tabs-nav" role="tablist" id="expTabList" data-page-node-id="jCS7KuEGHtkiLqDleKd54n">
                         <!-- JS 渲染 -->
@@ -1085,7 +1093,7 @@
 
             <!-- ===== 项目（分栏改名为“航空航天”） ===== -->
             <section class="section" id="projects" data-page-node-id="5UKB8HGS0Hx8xc6L71BXsV">
-                <h2 class="section-title" data-page-node-id="oqsXB9QFyHsygoTZt6nnKS">🚀 项目</h2>
+                <h2 class="section-title" data-page-node-id="oqsXB9QFyHsygoTZt6nnKS"><img src="icon_title/Crafting_Table.png" alt="项目图标" loading="lazy">项目</h2>
                 <div class="tabs-wrapper" id="projectTabs" data-page-node-id="iDTW9QT07ep7jNVgECfvFH">
                     <div class="tabs-nav" role="tablist" id="projTabList" data-page-node-id="iMweq7AZaTIA6kgZyocq4u">
                         <!-- JS 渲染 -->
@@ -1098,7 +1106,7 @@
 
             <!-- ===== 技能 ===== -->
             <section class="section" id="skills" data-page-node-id="RL1Gd3Y6jXIc6HByvw0Ukm">
-                <h2 class="section-title" data-page-node-id="MUiVUXneXwR79XffDHSGVK">🛠 技能矩阵</h2>
+                <h2 class="section-title" data-page-node-id="MUiVUXneXwR79XffDHSGVK"><img src="icon_title/Diamond_Pickaxe.png" alt="技能矩阵图标" loading="lazy">技能矩阵</h2>
                 <div class="skills-grid" id="skillsGrid" data-page-node-id="OOUFizFAc39IfAurlhA6D2">
                     <!-- JS 渲染 -->
                 </div>
@@ -1106,7 +1114,7 @@
 
             <!-- ===== 教育 & 证书 ===== -->
             <section class="section" id="education" data-page-node-id="jkpRlmhR1DuwVKugHwz2W0">
-                <h2 class="section-title" data-page-node-id="A5c6Ys4EjTNBvD0yFFdo6Z">📚 教育 & 证书</h2>
+                <h2 class="section-title" data-page-node-id="A5c6Ys4EjTNBvD0yFFdo6Z"><img src="icon_title/Book.png" alt="教育与证书图标" loading="lazy">教育 &amp; 证书</h2>
                 <div class="edu-awards-grid" data-page-node-id="SWb0gOKahGHWF297Na0bbz">
                     <div id="eduCard" data-page-node-id="hju1jzl2UGpwk6rztMQctI">
                         <!-- JS 渲染 -->
@@ -1125,7 +1133,7 @@
     <!-- ===== 页脚 ===== -->
     <footer class="footer" data-page-node-id="6NC4j5UrUV1BlpaPeFiuZh">
         <div class="container" data-page-node-id="0fJJXya6sm4lQCY3DDdkTB">
-            <p data-page-node-id="E7aCZIMYP5iQa2D3Co6reP">© 2026 周震琦 · 最后更新 2026年8月</p>
+            <p data-page-node-id="E7aCZIMYP5iQa2D3Co6reP">© 2026 周震琦 · 最后更新 2026年9月13日</p>
         </div>
     </footer>
 
@@ -1246,7 +1254,7 @@
                     ]
                 },
                 education: {
-                    school: '南昌航空大学',
+                    school: '南昌航空大学 · 软件学院',
                     major: '数据科学与大数据技术',
                     degree: '本科',
                     date: '2026年9月入学',
